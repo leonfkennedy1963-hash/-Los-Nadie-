@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Digital | Freedoom</title>
+    
+    <link href="https://v7.js-dos.com/assets/js-dos.css" rel="stylesheet">
+    <script src="https://v7.js-dos.com/assets/js-dos.js"></script>
+
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #00ff41;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 10px #00ff41;
+            margin-bottom: 20px;
+        }
+
+        #arcade-cabinet {
+            border: 4px solid #333;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+            background: #000;
+            width: 800px;
+            height: 600px;
+            position: relative;
+        }
+
+        #jsdos-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .controls-hint {
+            margin-top: 20px;
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        /* Estilo para los botones de JS-DOS */
+        .jsdos-controls {
+            filter: hue-rotate(120deg) brightness(0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Retro Arcade: Freedoom</h1>
+
+    <div id="arcade-cabinet">
+        <div id="jsdos-container"></div>
+    </div>
+
+    <div class="controls-hint">
+        [Flechas] Moverse - [Ctrl] Disparar - [Espacio] Abrir puertas - [Alt] Desplazarse
+    </div>
+
+    <script>
+        // Configuración de la ruta de emuladores
+        emulators.pathPrefix = "https://v7.js-dos.com/assets/";
+
+        // Elemento donde se va a renderizar el juego
+        const container = document.getElementById("jsdos-container");
+
+        // Ejecutar el bundle de Freedoom
+        // IMPORTANTE: Asegurate de que el archivo se llame exactamente así 
+        // y esté en la misma carpeta que este index.html
+        Dos(container)
+            .run("freedoom.jsdos")
+            .then((ci) => {
+                console.log("Juego cargado correctamente");
+                
+                // Forzar pantalla completa al hacer click si querés
+                // ci.fullscreen(); 
+            })
+            .catch((err) => {
+                console.error("Error al cargar el arcade:", err);
+            });
+    </script>
+
+</body>
+</html>

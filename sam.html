@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAM | El Guardián del Ritmo</title>
+    <style>
+        @font-face {
+            font-family: 'OrtlandCustom';
+            src: url('Ortland.ttf');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --celeste-patagonico: #74ACDF;
+            --cuero-viejo: #3d2b1f;
+            --yerba-mate: #4e5d23;
+            --nieve: #f0f0f0;
+            --sombra: #0a0a0a;
+        }
+
+        body {
+            background: var(--sombra);
+            color: #ccc;
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* FONDO: MONTAÑAS Y NIEBLA */
+        .background-chalten {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.4)), 
+                        url('https://www.transparenttextures.com/patterns/dust.png');
+            z-index: -2;
+        }
+
+        .fitz-roy-silhouette {
+            position: fixed;
+            bottom: 0; right: -50px;
+            font-size: 25vw;
+            color: rgba(255,255,255,0.03);
+            font-family: 'OrtlandCustom';
+            z-index: -1;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        header {
+            padding: 120px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--celeste-patagonico);
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            font-family: 'OrtlandCustom', serif;
+            font-size: clamp(5rem, 20vw, 12rem);
+            color: var(--nieve);
+            margin: 0;
+            text-shadow: 0 10px 30px rgba(116, 172, 223, 0.4);
+            letter-spacing: -5px;
+        }
+
+        .sub-chalten {
+            background: var(--celeste-patagonico);
+            color: #000;
+            font-weight: 900;
+            padding: 5px 25px;
+            transform: rotate(-1.5deg);
+            display: inline-block;
+            margin-top: -30px;
+            box-shadow: 5px 5px 0px #000;
+        }
+
+        /* SECCIONES MÍSTICAS */
+        .grid-sam {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .info-block {
+            background: rgba(20,20,20,0.8);
+            border: 1px solid #333;
+            padding: 30px;
+            position: relative;
+            transition: 0.4s;
+        }
+
+        .info-block:hover {
+            border-color: var(--celeste-patagonico);
+            transform: translateY(-5px);
+        }
+
+        .info-block h3 {
+            font-family: 'OrtlandCustom';
+            color: var(--celeste-patagonico);
+            font-size: 2rem;
+            margin-top: 0;
+        }
+
+        /* EL MATE INTERACTIVO */
+        .mate-ritual {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--cuero-viejo);
+            color: var(--nieve);
+            border-top: 5px solid var(--yerba-mate);
+        }
+
+        .mate-icon {
+            font-size: 80px;
+            cursor: pointer;
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+            transition: transform 0.2s;
+        }
+
+        .mate-icon:active { transform: rotate(10deg) scale(1.1); }
+
+        /* LISTA DE VALORES (EL ANTI-LEO) */
+        .values-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .values-list li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .values-list li::before {
+            content: '??';
+            position: absolute;
+            left: 0;
+            color: var(--celeste-patagonico);
+        }
+
+        /* ESTADÍSTICAS SEXYS */
+        .sexy-meter {
+            width: 100%;
+            height: 5px;
+            background: #222;
+            margin-top: 10px;
+        }
+
+        .sexy-fill {
+            height: 100%;
+            background: var(--celeste-patagonico);
+            box-shadow: 0 0 15px var(--celeste-patagonico);
+        }
+
+        footer {
+            padding: 100px 20px;
+            text-align: center;
+            opacity: 0.3;
+            font-size: 0.8rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="background-chalten"></div>
+    <div class="fitz-roy-silhouette">FITZ ROY</div>
+
+    <header>
+        <h1>SAM</h1>
+        <div class="sub-chalten">BAJISTA, ROMÁNTICO Y PATAGÓNICO</div>
+    </header>
+
+    <div class="grid-sam">
+        <div class="info-block">
+            <h3>ESPÍRITU DEL CHALTÉN</h3>
+            <p>Mientras Leo se pierde en las luces de la ciudad, Sam encuentra su tempo en el silencio de los glaciares. Disciplinado como un guía de montaña y paciente como el viento sur. Si el bajo suena así de profundo, es porque viene del núcleo de la tierra.</p>
+        </div>
+
+        <div class="info-block">
+            <h3>EL ÚLTIMO ROMÁNTICO</h3>
+            <ul class="values-list">
+                <li><b>Caballero:</b> Te abre la puerta y te clava un solo de bajo.</li>
+                <li><b>Sexy:</b> Atractivo pero sin esfuerzo, puro carisma rioplatense.</li>
+                <li><b>Sabio:</b> Menos palabras, más frecuencias graves.</li>
+            </ul>
+            <div class="sexy-meter"><div class="sexy-fill" style="width: 98%;"></div></div>
+            <small>ÍNDICE DE MAGNETISMO: CRÍTICO</small>
+        </div>
+
+        <div class="info-block">
+            <h3>EL EQUILIBRIO</h3>
+            <p>Si la banda no implosionó todavía por las locuras de Leo, es gracias a Sam. Él es el que trae los mates, el que pone la cara frente a los dueños de los boliches y el que mantiene el 4/4 cuando todo se vuelve un delirio psicótico.</p>
+        </div>
+    </div>
+
+    <section class="mate-ritual">
+        <h2 style="font-family: 'OrtlandCustom';">CEBATE UN AMARGO</h2>
+        <div class="mate-icon" onclick="cebarMate()">??</div>
+        <p id="mate-msg">Hacé clic en el porongo para escuchar una verdad.</p>
+        <div style="margin-top: 30px; font-style: italic; color: #aaa;">
+            "La paciencia no es esperar, es saber cómo vibrar mientras esperás."
+        </div>
+    </section>
+
+    <div style="text-align: center; margin: 50px 0;">
+        <a href="index.html" style="color: var(--nieve); text-decoration: none; border: 2px solid var(--celeste-patagonico); padding: 15px 40px; font-family: 'OrtlandCustom'; font-size: 1.5rem; transition: 0.3s;">
+            VOLVER AL QUILOMBO
+        </a>
+    </div>
+
+    <footer>
+        HECHO EN EL FIN DEL MUNDO - SAM 2026 - LOS NADIE
+    </footer>
+
+    <script>
+        const frases = [
+            "Un mate amargo, como la realidad.",
+            "Leo está loco, pero sin él no habría ruido.",
+            "El bajo no se escucha, se siente en el pecho.",
+            "Mañana ensayamos a las 8. Puntual.",
+            "Tranquilo, che. Todo se soluciona con un riff.",
+            "¿Viste lo que es el Fitz Roy? Eso es solidez."
+        ];
+
+        function cebarMate() {
+            const msg = document.getElementById('mate-msg');
+            const randomFrase = frases[Math.floor(Math.random() * frases.length)];
+            msg.innerText = randomFrase;
+            msg.style.color = "#74ACDF";
+            
+            // Animación de "sorbido"
+            const mate = document.querySelector('.mate-icon');
+            mate.style.transform = "scale(1.2) rotate(-5deg)";
+            setTimeout(() => mate.style.transform = "scale(1) rotate(0deg)", 200);
+        }
+    </script>
+
+</body>
+</html>

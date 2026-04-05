@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>LEO | ERROR CRÍTICO DE SISTEMA</title>
+    <style>
+        @font-face {
+            font-family: 'OrtlandCustom';
+            src: url('Ortland.ttf');
+        }
+
+        :root {
+            --win-gray: #c0c0c0;
+            --sepia-error: #704214;
+            --sepia-light: #f4ecd8;
+        }
+
+        body {
+            background: #000;
+            color: #222;
+            font-family: 'MS Sans Serif', 'Courier New', monospace;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* EL PANTALLAZO SEPIA (VERSION WIN98 DE LEO) */
+        .sepia-screen {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--sepia-error);
+            color: var(--sepia-light);
+            display: none; /* Se activa por JS */
+            z-index: 9999;
+            padding: 50px;
+            box-sizing: border-box;
+            font-size: 1.5rem;
+            animation: tremor 0.05s infinite;
+        }
+
+        @keyframes tremor {
+            0% { transform: translate(1px, 1px); }
+            100% { transform: translate(-1px, -1px); }
+        }
+
+        /* FONDO ESTILO ESCRITORIO VIEJO */
+        .desktop-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #55aaaa; /* El verde azulado clásico de Win98 */
+            z-index: -3;
+        }
+
+        /* VENTANA DE WINDOWS 98 PARA LEO */
+        .window {
+            width: 90%;
+            max-width: 800px;
+            background: var(--win-gray);
+            border: 2px solid #fff;
+            border-right: 2px solid #444;
+            border-bottom: 2px solid #444;
+            margin: 40px auto;
+            padding: 2px;
+            box-shadow: 10px 10px 0px rgba(0,0,0,0.5);
+        }
+
+        .title-bar {
+            background: linear-gradient(90deg, #000080, #1084d0);
+            color: white;
+            padding: 3px 10px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .content {
+            padding: 20px;
+            background: var(--win-gray);
+            border: 1px inset #fff;
+        }
+
+        h1 {
+            font-family: 'OrtlandCustom', serif;
+            font-size: 5rem;
+            color: #000;
+            text-align: center;
+            margin: 10px 0;
+            filter: sepia(1);
+        }
+
+        /* ELEMENTOS DEL DELINCUENTE */
+        .profile-pic {
+            width: 200px;
+            height: 250px;
+            background: #888;
+            border: 2px inset #fff;
+            float: left;
+            margin-right: 20px;
+            overflow: hidden;
+            filter: sepia(1) contrast(150%);
+        }
+
+        .profile-pic img { width: 100%; display: none; }
+
+        .tags { margin-top: 15px; }
+        .tag {
+            background: #000;
+            color: var(--sepia-light);
+            padding: 2px 5px;
+            font-size: 0.8rem;
+            margin: 2px;
+            border: 1px solid var(--sepia-light);
+        }
+
+        .motivation-box {
+            background: #fff;
+            border: 2px inset #000;
+            padding: 15px;
+            margin-top: 20px;
+            clear: both;
+        }
+
+        /* EL ZEPPELIN / DISCOS */
+        .zeppelin-leo {
+            position: fixed;
+            width: 200px;
+            z-index: 100;
+            filter: sepia(1) drop-shadow(5px 5px 0px #000);
+            animation: drift 20s infinite linear;
+        }
+
+        @keyframes drift {
+            from { left: -250px; top: 20%; }
+            to { left: 110%; top: 60%; }
+        }
+
+        .btn-win {
+            background: var(--win-gray);
+            border: 2px outset #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            color: #000;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .btn-win:active { border-style: inset; }
+
+    </style>
+</head>
+<body>
+
+<div class="desktop-bg"></div>
+
+<div id="sepiaError" class="sepia-screen">
+    <p>A fatal exception LEO_0E has occurred at 0028:C000A249 in VXD VMM(01). <br>
+    The current application will be terminated due to extreme idiocy.</p>
+    <p>* Press any key to continue (It won't work, he's still a retard).<br>
+    * Press ALT+CTRL+DEL to restart your life without knowing Leo.</p>
+    <p style="text-align:center; margin-top:100px;">Error: PARKINSON_OVERFLOW_DETECTED</p>
+</div>
+
+<img src="TU_ZEPPELIN.gif" class="zeppelin-leo">
+
+<div class="window">
+    <div class="title-bar">
+        <span>C:\BAND\LEO_THE_IMBECILE.EXE</span>
+        <div style="display:flex; gap:2px;">
+            <button style="width:16px;height:14px;font-size:8px;">_</button>
+            <button style="width:16px;height:14px;font-size:8px;">X</button>
+        </div>
+    </div>
+    
+    <div class="content">
+        <h1>LEO</h1>
+        
+        <div class="profile-pic" id="mugshot">
+            <img src="FOTO_FEA_DE_LEO.jpg" id="leoImg" style="width:100%;">
+            <div id="no-photo" style="text-align:center; padding-top:100px;">SISTEMA DAÑADO</div>
+        </div>
+
+        <div>
+            <p><b>ESTADO:</b> Fugitivo de la evolución.</p>
+            <p><b>FEALDAD:</b> 99.9% (Patada de burro certificada).</p>
+            <p><b>PATOLOGÍA:</b> Parkinson rítmico bailable.</p>
+            
+            <div class="tags">
+                <span class="tag">PERVERTIDO</span>
+                <span class="tag">IMBÉCIL</span>
+                <span class="tag">HORRIBLE</span>
+                <span class="tag">CUARTETERO</span>
+            </div>
+        </div>
+
+        <div class="motivation-box">
+            <p><b>FRASE DEL DÍA:</b> "Si el mundo fuera un disco, yo sería la raya que hace que salte la música."</p>
+        </div>
+
+        <center>
+            <a href="index.html" class="btn-win">FORMAT C:\BRAIN</a>
+        </center>
+    </div>
+</div>
+
+<script>
+    // EFECTO PANTALLAZO SEPIA RANDOM
+    const errorScreen = document.getElementById('sepiaError');
+    
+    function triggerSepiaError() {
+        const delay = Math.random() * 8000 + 3000;
+        setTimeout(() => {
+            errorScreen.style.display = 'block';
+            setTimeout(() => {
+                errorScreen.style.display = 'none';
+                triggerSepiaError();
+            }, 500); // El error dura medio segundo y se va
+        }, delay);
+    }
+    triggerSepiaError();
+
+    // LA FOTO QUE APARECE Y DESAPARECE
+    const img = document.getElementById('leoImg');
+    const noPhoto = document.getElementById('no-photo');
+    
+    setInterval(() => {
+        if(Math.random() > 0.8) {
+            img.style.display = 'block';
+            noPhoto.style.display = 'none';
+            setTimeout(() => {
+                img.style.display = 'none';
+                noPhoto.style.display = 'block';
+            }, 150);
+        }
+    }, 2000);
+
+    // EL CURSOR TIEMBLA (PARKINSON)
+    document.addEventListener('mousemove', (e) => {
+        if(Math.random() > 0.9) {
+            window.scrollBy(Math.random()*4-2, Math.random()*4-2);
+        }
+    });
+</script>
+
+</body>
+</html>

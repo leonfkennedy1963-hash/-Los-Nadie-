@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOS NADIE | Web Oficial</title>
+    <style>
+        :root {
+            --gris-oscuro: #1a1a1a;
+            --gris-metal: #444;
+            --rojo-sangre: #800000;
+            --neon-verde: #00ff00;
+        }
+
+        body {
+            background: #050505;
+            color: #ccc;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* FONDO ANIMADO Y ZEPELÍN */
+        .background-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+            opacity: 0.15; z-index: -2;
+            animation: flicker 0.1s infinite;
+        }
+
+        .zeppelin {
+            position: fixed;
+            top: 15%;
+            width: 250px;
+            z-index: -1;
+            filter: grayscale(100%) contrast(120%);
+            animation: fly 25s linear infinite;
+        }
+
+        @keyframes fly {
+            from { left: -300px; }
+            to { left: 110%; }
+        }
+
+@font-face {
+    font-family: 'OrtlandCustom';
+    src: url('Ortland.ttf'); /* Asegurate que el nombre coincida exacto con el archivo */
+    font-weight: normal;
+    font-style: normal;
+}
+
+        @keyframes flicker {
+            0% { opacity: 0.1; } 50% { opacity: 0.2; } 100% { opacity: 0.1; }
+        }
+
+        /* HEADER Y SLOGAN */
+        header { padding: 50px 20px; text-align: center; width: 100%; }
+        h1 { font-size: clamp(3.5rem, 10vw, 6rem); color: #fff; text-shadow: 8px 8px 0px #222; margin: 0; }
+        .slogan { background: #ff0000; color: #000; font-weight: 900; padding: 5px 20px; display: inline-block; transform: rotate(-1deg); margin-top: 10px; }
+
+        /* SECCIONES */
+        section { width: 90%; max-width: 1000px; margin: 40px 0; border: 2px solid var(--gris-metal); background: rgba(20,20,20,0.9); padding: 20px; position: relative; }
+        h2 { border-bottom: 2px solid var(--rojo-sangre); padding-bottom: 10px; text-transform: uppercase; }
+
+        /* RELOJ CON NÚMEROS */
+        .clock-box { text-align: center; }
+        #analogClock { background: #000; border-radius: 50%; border: 10px solid #333; }
+
+        /* MIEMBROS - ESTILO FICHA POLICIAL */
+        .grid-miembros { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .ficha { border: 1px solid #555; padding: 10px; background: #111; transition: 0.3s; }
+        .ficha:hover { border-color: var(--rojo-sangre); transform: scale(1.02); }
+        .ficha span { display: block; color: var(--rojo-sangre); font-weight: bold; }
+
+        /* ROCOLA */
+        .jukebox { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .controles { display: flex; gap: 10px; }
+        .btn-juke { background: #333; color: var(--neon-verde); border: 2px outset #555; padding: 10px; cursor: pointer; font-weight: bold; }
+        .btn-juke:active { border-style: inset; }
+
+        /* MERCH */
+        .merch-btn { background: #fff; color: #000; padding: 20px; display: block; text-decoration: none; font-weight: 900; margin: 10px 0; text-align: center; border: 3px solid #000; box-shadow: 5px 5px 0px var(--rojo-sangre); }
+        .merch-btn:hover { background: var(--rojo-sangre); color: #fff; }
+
+        /* AGRADECIMIENTOS (HUMOR NEGRO) */
+        .gracias { font-style: italic; font-size: 0.9rem; color: #777; line-height: 1.6; }
+
+        /* REDES SOCIALES VIVAS */
+        footer { width: 100%; padding: 50px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; background: #000; }
+        .social-link { color: #555; text-decoration: none; font-weight: bold; padding: 10px; border: 1px solid #222; transition: 0.3s; }
+        .social-link:hover { color: #fff; border-color: #fff; transform: translateY(-10px) rotate(5deg); box-shadow: 0 10px 20px rgba(255,255,255,0.2); }
+
+:root {
+    /* ... tus otros colores ... */
+    --font-banda: 'OrtlandCustom', serif;
+}
+
+/* Aplicar al título principal y encabezados */
+h1, h2 {
+    font-family: var(--font-banda);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Aplicar al logo interactivo para que tenga coherencia */
+.pixel-text {
+    font-family: var(--font-banda) !important;
+    font-size: clamp(60px, 14vw, 140px);
+}
+
+
+    </style>
+</head>
+<body>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=VT323&display=swap" rel="stylesheet">
+
+<div class="super-logo-container waving-animation">
+  
+  <div class="logo-segment">
+    <span class="pixel-text flag-ar">L</span>
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="interactive-o-svg" onclick="transformToMate(this)">
+        <defs>
+            <radialGradient id="sunGradient" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#FCE300"/>
+                <stop offset="100%" stop-color="#FFA000"/>
+            </radialGradient>
+        </defs>
+        <g class="sun-state">
+            <circle cx="50" cy="50" r="38" fill="url(#sunGradient)" stroke="#000" stroke-width="4" class="sun-body"/>
+            <path d="M50 5 L50 20 M50 80 L50 95 M5 50 L20 50 M80 50 L95 50 M18 18 L30 30 M70 70 L82 82 M18 82 L30 70 M70 18 L82 30" stroke="#FFA000" stroke-width="6" stroke-linecap="round"/>
+        </g>
+        <g class="mate-state" style="opacity: 0; transform: scale(0);">
+            <path d="M25,45 Q25,95 50,95 Q75,95 75,45 Z" fill="#4E342E" stroke="#000" stroke-width="4"/>
+            <ellipse cx="50" cy="45" rx="25" ry="10" fill="#558B2F"/>
+            <path d="M45,10 L50,45" stroke="#CFD8DC" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="43" cy="8" r="4" fill="#90A4AE"/>
+        </g>
+    </svg>
+
+    <span class="pixel-text flag-ar">S</span>
+  </div>
+
+  <div style="width: 20px;"></div>
+
+  <div class="logo-segment">
+    <span class="pixel-text flag-gt">N</span>
+    <span class="pixel-text flag-gt" style="position:relative;">A
+        <span class="tamal-pixel">??</span>
+    </span>
+  </div>
+
+  <div class="logo-segment">
+    <span class="pixel-text flag-ve">D</span>
+    <span class="pixel-text flag-ve">I</span>
+    <span class="pixel-text flag-ve">E</span>
+  </div>
+
+</div>
+
+<style>
+  .super-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(0,0,0,0.85);
+    border: 6px double #444;
+    box-shadow: 0 0 50px rgba(0,0,0,1);
+  }
+
+  .logo-segment {
+    display: flex;
+    align-items: center;
+  }
+
+  .pixel-text {
+    /* FUENTE MÁS GRUESA Y VISIBLE */
+    font-family: 'Black Ops One', cursive;
+    font-size: clamp(60px, 12vw, 120px);
+    line-height: 1;
+    display: inline-block;
+    color: white;
+    /* BORDE NEGRO GRUESO PARA SEPARAR DEL FONDO */
+    text-shadow: 
+        -4px -4px 0 #000,  
+         4px -4px 0 #000,
+        -4px  4px 0 #000,
+         4px  4px 0 #000,
+         8px  8px 0px rgba(255,0,0,0.5); /* Sombra proyectada roja punk */
+    
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: transform 0.3s;
+  }
+
+  /* BANDERAS MEJORADAS */
+  .flag-ar { background-image: linear-gradient(to bottom, #74ACDF 35%, #fff 35%, #fff 65%, #74ACDF 65%); }
+  .flag-gt { background-image: linear-gradient(to right, #4997D0 33%, #fff 33%, #fff 66%, #4997D0 66%); }
+  .flag-ve { background-image: linear-gradient(to bottom, #FCE300 33%, #0033A0 33%, #0033A0 66%, #C8102E 66%); }
+
+  /* TAMAL CON SOMBRA */
+  .tamal-pixel {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    font-size: 45px;
+    filter: drop-shadow(4px 4px 0px #000);
+    animation: bounce 2s infinite;
+  }
+
+  /* O INTERACTIVA */
+  .interactive-o-svg {
+    width: clamp(70px, 15vw, 130px);
+    height: auto;
+    cursor: pointer;
+    filter: drop-shadow(0 0 15px #FCE300);
+    margin: 0 -5px;
+    z-index: 10;
+  }
+
+  /* ANIMACIÓN ONDEANTE */
+  .waving-animation {
+    animation: super-wave 5s infinite ease-in-out;
+  }
+
+  @keyframes super-wave {
+    0%, 100% { transform: perspective(1000px) rotateX(10deg) rotateY(-5deg) skewX(-2deg); }
+    50% { transform: perspective(1000px) rotateX(-10deg) rotateY(5deg) skewX(2deg) translateY(-20px); }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-15px) rotate(10deg); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .pixel-text { font-size: 50px; }
+    .interactive-o-svg { width: 60px; }
+  }
+</style>
+
+<script>
+  function transformToMate(svg) {
+    const sun = svg.querySelector('.sun-state');
+    const mate = svg.querySelector('.mate-state');
+    const isSun = sun.style.opacity !== '0';
+
+    if (isSun) {
+        sun.style.opacity = '0';
+        sun.style.transform = 'scale(0) rotate(-180deg)';
+        mate.style.opacity = '1';
+        mate.style.transform = 'scale(1) rotate(0deg)';
+        svg.style.filter = 'drop-shadow(0 0 15px #5D4037)';
+    } else {
+        sun.style.opacity = '1';
+        sun.style.transform = 'scale(1) rotate(0deg)';
+        mate.style.opacity = '0';
+        mate.style.transform = 'scale(0) rotate(180deg)';
+        svg.style.filter = 'drop-shadow(0 0 15px #FCE300)';
+    }
+    // Efecto de sonido visual
+    svg.style.transition = "all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+  }
+</script>
+</style>
+
+<script>
+  function transformToMate(svgElement) {
+    const sunState = svgElement.querySelector('.sun-state');
+    const mateState = svgElement.querySelector('.mate-state');
+
+    if (sunState.style.opacity === '0') {
+      // Volver a ser Sol
+      sunState.style.opacity = '1';
+      sunState.style.transform = 'scale(1)';
+      mateState.style.opacity = '0';
+      mateState.style.transform = 'scale(0)';
+      svgElement.style.filter = 'drop-shadow(0 0 10px #FCE300)'; // Vuelve el brillo
+    } else {
+      // Transformar en Mate
+      sunState.style.opacity = '0';
+      sunState.style.transform = 'scale(0)';
+      mateState.style.opacity = '1';
+      mateState.style.transform = 'scale(1) rotate(360deg)';
+      svgElement.style.filter = 'none'; // Se va el brillo neón
+    }
+  }
+</script>
+
+    <div class="background-overlay"></div>
+    <img src="TU_GIF_DE_ZEPELIN.gif" class="zeppelin" alt="Zepelin">
+
+    <header>
+        <h1>LOS NADIE</h1>
+        <div class="slogan">ENTRE EL SER Y NO SER ELEGIMOS NO SER [HOMOSEXUALES]</div>
+    </header>
+
+    <section class="clock-box">
+       <canvas id="analogClock" width="220" height="220"></canvas>
+<div id="digitalTime">00:00:00</div>
+<button onclick="toggleFormat()">12H / 24H</button>
+    </section>
+
+    <section>
+        <h2>Prontuario / Miembros</h2>
+        <div class="grid-miembros">
+            <div class="ficha"><span>BATERO:</span> Leo</div>
+            <div class="ficha"><span>BAJISTA:</span> Sam</div>
+            <div class="ficha"><span>GUITARRISTA:</span> Damian</div>
+            <div class="ficha"><span>VOCALISTA:</span> John Creibelson</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Contrabando (Merchandise)</h2>
+        <a href="#" class="merch-btn">REMERAS "NO SER" - $15.000</a>
+        <a href="#" class="merch-btn">GORRAS PRESIDIARIO - $8.000</a>
+        <a href="#" class="merch-btn">PARCHES ANTISISTEMA - $3.000</a>
+    </section>
+
+    <section>
+    <h2>Rocola Oxidada</h2>
+    <div class="jukebox">
+        <div id="track-name" style="color: var(--neon-verde); font-weight: bold;">
+            LISTO PARA EL RUIDO...
+        </div>
+
+        <div class="controles">
+            <button class="btn-juke" onclick="prevTrack()">PREV</button>
+            <button class="btn-juke" onclick="playPause()">PLAY / PAUSE</button>
+            <button class="btn-juke" onclick="nextTrack()">NEXT</button>
+        </div>
+
+        <input type="range" min="0" max="100" value="50" oninput="updateVolume(this.value)">
+        <small>VOLUMEN</small>
+    </div>
+</section>
+
+    <section>
+        <h2>Agradecimientos Especiales</h2>
+        <p class="gracias">
+            Un saludo lleno de asco y amor para <strong>Damian</strong> y <strong>Sam</strong>. Gracias por seguir tocando aunque el talento los esquive como si tuvieran lepra. Damian, tus solos de guitarra nos hacen desear la sordera absoluta, y Sam, el bajo suena tan bajo que parece que no estuvieras, lo cual es tu mejor aporte a la banda. Los quiero, pedazos de basura, ojalá nos muramos en un escenario antes que en un geriátrico.
+        </p>
+    </section>
+
+    <footer>
+        <a href="#" class="social-link">KICK</a>
+        <a href="#" class="social-link">TIKTOK</a>
+        <a href="#" class="social-link">DISCORD</a>
+        <a href="#" class="social-link">INSTAGRAM</a>
+        <a href="#" class="social-link">SPOTIFY</a>
+        <a href="#" class="social-link">YOUTUBE</a>
+        <a href="#" class="social-link">TWITCH</a>
+        <a href="#" class="social-link">X / TWITTER</a>
+    </footer>
+
+    <script>
+		// 1. Lista de canciones
+const canciones = [
+    { titulo: "Himno al No Ser", archivo: "track1.mp3" },
+    { titulo: "Celdas de Cuero", archivo: "track2.mp3" },
+    { titulo: "Grasa y Punk", archivo: "track3.mp3" }
+	{ titulo: "Grasa y Punk", archivo: "track3.mp3" }
+	{ titulo: "Grasa y Punk", archivo: "track3.mp3" }
+	{ titulo: "Grasa y Punk", archivo: "track3.mp3" }
+];
+
+let indiceActual = 0;
+const audio = new Audio(canciones[indiceActual].archivo);
+const trackNameDisp = document.getElementById("track-name");
+
+// 2. Funciones de control
+function playPause() {
+    if (audio.paused) {
+        audio.play();
+        trackNameDisp.innerText = "Tocando: " + canciones[indiceActual].titulo;
+    } else {
+        audio.pause();
+    }
+}
+
+function nextTrack() {
+    indiceActual = (indiceActual + 1) % canciones.length;
+    cambiarCancion();
+}
+
+function prevTrack() {
+    indiceActual = (indiceActual - 1 + canciones.length) % canciones.length;
+    cambiarCancion();
+}
+
+function cambiarCancion() {
+    audio.src = canciones[indiceActual].archivo;
+    audio.play();
+    trackNameDisp.innerText = "Tocando: " + canciones[indiceActual].titulo;
+}
+
+// 3. Control de volumen (Vincular al input range)
+document.querySelector('input[type="range"]').oninput = (e) => {
+    audio.volume = e.target.value / 100;
+};
+</script>
+
+<script>
+    // 1. CONFIGURACIÓN INICIAL
+    let is24H = true;
+    const canciones = [
+        { titulo: "Himno al No Ser", archivo: "track1.mp3" },
+        { titulo: "Celdas de Cuero", archivo: "track2.mp3" },
+        { titulo: "Grasa y Punk", archivo: "track3.mp3" }
+    ];
+    let indiceActual = 0;
+    let audio = new Audio(canciones[indiceActual].archivo);
+
+    // 2. ARRANQUE FORZADO (Window.onload asegura que el HTML ya exista)
+    window.onload = function() {
+        console.log("Sistema Los Nadie: Iniciado");
+        setInterval(drawClock, 1000);
+        drawClock();
+    };
+
+    // 3. LÓGICA DEL RELOJ
+    function drawClock() {
+        const canvas = document.getElementById("analogClock");
+        const digital = document.getElementById("digitalTime");
+        if (!canvas || !digital) return;
+
+        const ctx = canvas.getContext("2d");
+        const radius = canvas.height / 2;
+
+        // Reset total para evitar que el reloj se "vaya" de la pantalla
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.translate(radius, radius);
+
+        // Dibujo del fondo del reloj
+        ctx.beginPath();
+        ctx.arc(0, 0, radius - 10, 0, 2 * Math.PI);
+        ctx.fillStyle = "#000";
+        ctx.fill();
+        ctx.strokeStyle = "#333";
+        ctx.lineWidth = 4;
+        ctx.stroke();
+
+        // Dibujar los números
+        ctx.font = "bold 14px 'Courier New'";
+        ctx.fillStyle = "#00ff00"; // Verde neón para que resalte
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        for (let n = 1; n <= 12; n++) {
+            let ang = n * Math.PI / 6;
+            ctx.rotate(ang);
+            ctx.translate(0, -radius * 0.75);
+            ctx.rotate(-ang);
+            ctx.fillText(n.toString(), 0, 0);
+            ctx.rotate(ang);
+            ctx.translate(0, radius * 0.75);
+            ctx.rotate(-ang);
+        }
+
+        const now = new Date();
+        let h = now.getHours();
+        let m = now.getMinutes();
+        let s = now.getSeconds();
+
+        // Actualizar Reloj Digital
+        let hDisp = h;
+        let ampm = "";
+        if (!is24H) {
+            ampm = h >= 12 ? " PM" : " AM";
+            hDisp = h % 12 || 12;
+        }
+        digital.innerText = `${hDisp}:${m < 10 ? '0'+m : m}:${s < 10 ? '0'+s : s}${ampm}`;
+
+        // Dibujar Agujas
+        drawHand(ctx, (h % 12 * Math.PI / 6) + (m * Math.PI / 360), radius * 0.5, 5, "#fff"); // Hora
+        drawHand(ctx, (m * Math.PI / 30), radius * 0.7, 3, "#888"); // Minuto
+        drawHand(ctx, (s * Math.PI / 30), radius * 0.85, 2, "#ff0000"); // Segundo
+    }
+
+    function drawHand(ctx, pos, length, width, color) {
+        ctx.beginPath();
+        ctx.lineWidth = width;
+        ctx.lineCap = "square";
+        ctx.strokeStyle = color;
+        ctx.moveTo(0, 0);
+        ctx.rotate(pos);
+        ctx.lineTo(0, -length);
+        ctx.stroke();
+        ctx.rotate(-pos);
+    }
+
+    // 4. FUNCIONES DE INTERACCIÓN
+    function toggleFormat() {
+        is24H = !is24H;
+        drawClock();
+    }
+
+    function playPause() {
+        const display = document.getElementById("track-name");
+        if (audio.paused) {
+            audio.play().catch(e => console.log("Esperando interacción para audio"));
+            display.innerText = "TOCANDO: " + canciones[indiceActual].titulo;
+        } else {
+            audio.pause();
+            display.innerText = "PAUSADO";
+        }
+    }
+
+    function nextTrack() {
+        audio.pause();
+        indiceActual = (indiceActual + 1) % canciones.length;
+        audio = new Audio(canciones[indiceActual].archivo);
+        playPause();
+    }
+
+    function prevTrack() {
+        audio.pause();
+        indiceActual = (indiceActual - 1 + canciones.length) % canciones.length;
+        audio = new Audio(canciones[indiceActual].archivo);
+        playPause();
+    }
+
+    function updateVolume(val) {
+        audio.volume = val / 100;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERROR NADIE.410 | Official Site</title>
+    <style>
+        :root {
+            --gris-oscuro: #0a0a0a;
+            --gris-metal: #333;
+            --rojo-sangre: #990000;
+            --neon-verde: #39ff14;
+            --azul-link: #0088ff;
+        }
+
+        body {
+            background: #050505;
+            color: #eee;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.4;
+        }
+
+        /* FONDO ASALTO */
+        .background-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+            opacity: 0.2; z-index: -2;
+            pointer-events: none;
+        }
+
+        header { padding: 40px 20px; text-align: center; width: 100%; }
+
+        /* LOGO SVG */
+        .logo-container { width: 100%; max-width: 900px; margin: auto; }
+        .logo-text-base { font-family: 'Arial Black', sans-serif; font-size: 110px; font-weight: 900; stroke: #000; stroke-width: 2px; }
+        
+        .sol-mayo {
+            transform-origin: center;
+            animation: rotate-sun 10s linear infinite, glow-sun 2s ease-in-out infinite alternate;
+        }
+        @keyframes rotate-sun { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes glow-sun { from { filter: drop-shadow(0 0 5px #ffd700); } to { filter: drop-shadow(0 0 20px #fff); } }
+
+        .slogan { 
+            background: var(--rojo-sangre); color: #fff; font-weight: bold; 
+            padding: 8px 25px; display: inline-block; transform: rotate(-2deg); 
+            margin-top: 15px; border: 2px solid #000;
+        }
+
+        section { 
+            width: 90%; max-width: 850px; margin: 30px 0; 
+            background: rgba(15,15,15,0.9); border: 1px solid #444; padding: 25px; 
+            box-shadow: 10px 10px 0px #000;
+        }
+
+        h2 { border-left: 10px solid var(--rojo-sangre); padding-left: 15px; text-transform: uppercase; margin-top: 0; }
+
+        /* ANIMACIÓN DE SALTO PARA BOTONES */
+        .btn-jump {
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-jump:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 20px rgba(0,0,0,0.6);
+        }
+
+        .btn-jump:active {
+            transform: translateY(2px) scale(0.95);
+        }
+
+        /* MIEMBROS COMO BOTONES */
+        .grid-miembros { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .ficha-btn { 
+            background: #1a1a1a; border: 2px solid #333; padding: 20px; 
+            color: #ccc; text-align: center; border-radius: 4px;
+        }
+        .ficha-btn:hover { border-color: var(--rojo-sangre); color: #fff; }
+        .ficha-btn span { color: var(--rojo-sangre); font-weight: 900; display: block; margin-bottom: 5px; }
+
+        /* ROCOLA */
+        .jukebox { text-align: center; }
+        .controles { margin: 20px 0; display: flex; justify-content: center; gap: 15px; }
+        .btn-audio { 
+            background: #222; color: var(--neon-verde); border: 2px solid var(--neon-verde); 
+            padding: 12px 24px; font-weight: bold; border-radius: 0;
+        }
+
+        /* REDES SOCIALES */
+        footer { 
+            background: #000; width: 100%; padding: 60px 20px; 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+            gap: 15px; max-width: 1000px; margin-top: 50px;
+        }
+        .social-btn { 
+            padding: 15px; text-align: center; border: 1px solid #333; 
+            font-size: 0.75rem; font-weight: bold; color: #888;
+        }
+        .social-btn:hover { border-color: #fff; color: #fff; }
+
+        .merch-btn {
+            background: #fff; color: #000; padding: 20px; width: 100%;
+            display: block; box-sizing: border-box; font-weight: 900;
+            border: 4px solid #000; margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background-overlay"></div>
+
+   <header>
+    <div class="logo-container">
+        <svg viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="flag-ar" patternUnits="userSpaceOnUse" width="100" height="200">
+                    <rect width="100" height="66" fill="#74ACDF"/>
+                    <rect y="66" width="100" height="68" fill="#fff"/>
+                    <rect y="134" width="100" height="66" fill="#74ACDF"/>
+                </pattern>
+                
+                <pattern id="flag-gt" patternUnits="userSpaceOnUse" width="120" height="200">
+                    <rect width="40" height="200" fill="#4997D0"/>
+                    <rect x="40" width="40" height="200" fill="#fff"/>
+                    <rect x="80" width="40" height="200" fill="#4997D0"/>
+                </pattern>
+
+                <pattern id="flag-ve" patternUnits="userSpaceOnUse" width="100" height="200">
+                    <rect width="100" height="66" fill="#FCE300"/>
+                    <rect y="66" width="100" height="68" fill="#0033A0"/>
+                    <rect y="134" width="100" height="66" fill="#C8102E"/>
+                </pattern>
+            </defs>
+
+            <text x="0" y="150" class="logo-text-base" fill="url(#flag-ar)">ERR</text>
+            <g class="sol-mayo">
+                <circle cx="345" cy="115" r="35" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+                <circle cx="345" cy="115" r="15" fill="none" stroke="#B8860B" stroke-width="1"/>
+            </g>
+            <text x="410" y="150" class="logo-text-base" fill="url(#flag-ar)">R</text>
+
+            <text x="550" y="150" class="logo-text-base" fill="url(#flag-gt)">NA</text>
+            <text x="730" y="150" class="logo-text-base" fill="url(#flag-gt)">D</text>
+            <g transform="translate(775, 110) scale(0.4)">
+                <circle cx="0" cy="0" r="25" fill="#8B4513" opacity="0.7"/> <path d="M-15,0 L15,0 M0,-15 L0,15" stroke="#fff" stroke-width="5"/> 
+            </g>
+            <text x="835" y="150" class="logo-text-base" fill="url(#flag-gt)">IE</text>
+
+            <text x="980" y="150" class="logo-text-base" fill="url(#flag-ve)">.410</text>
+            <g transform="translate(1090, 110)">
+                <text x="-45" y="5" fill="#fff" font-size="12" font-family="Arial">*</text>
+                <text x="-35" y="-10" fill="#fff" font-size="12
+    <section>
+        <h2>Prontuario (Miembros)</h2>
+        <div class="grid-miembros">
+            <a href="https://ejemplo.com/leo" class="ficha-btn btn-jump"><span>BATERO</span> Leo</a>
+            <a href="https://ejemplo.com/sam" class="ficha-btn btn-jump"><span>BAJISTA</span> Sam</a>
+            <a href="https://ejemplo.com/damian" class="ficha-btn btn-jump"><span>GUITARRA</span> Damian</a>
+            <a href="https://ejemplo.com/john" class="ficha-btn btn-jump"><span>VOCALS</span> John C.</a>
+        </div>
+    </section>
+
+    <section class="jukebox">
+        <h2>Rocola Oxidada</h2>
+        <div id="track-name" style="color: var(--neon-verde); margin-bottom: 15px;">SISTEMA LISTO...</div>
+        <div class="controles">
+            <button class="btn-audio btn-jump" onclick="prevTrack()">PREV</button>
+            <button class="btn-audio btn-jump" onclick="playPause()">PLAY/PAUSE</button>
+            <button class="btn-audio btn-jump" onclick="nextTrack()">NEXT</button>
+        </div>
+        <input type="range" min="0" max="100" value="50" style="width:200px" oninput="updateVolume(this.value)">
+    </section>
+
+    <section>
+        <h2>Contrabando</h2>
+        <a href="#" class="merch-btn btn-jump">REMERAS "ERROR" - $15.000</a>
+        <a href="#" class="merch-btn btn-jump">GORRAS .410 - $8.000</a>
+    </section>
+
+    <footer>
+        <a href="https://kick.com/tucanal" class="social-btn btn-jump">KICK</a>
+        <a href="https://discord.gg/invite" class="social-btn btn-jump">DISCORD</a>
+        <a href="https://tiktok.com/@user" class="social-btn btn-jump">TIKTOK</a>
+        <a href="https://instagram.com/user" class="social-btn btn-jump">INSTAGRAM</a>
+        <a href="https://spotify.com" class="social-btn btn-jump">SPOTIFY</a>
+        <a href="https://twitch.tv" class="social-btn btn-jump">TWITCH</a>
+        <a href="https://x.com" class="social-btn btn-jump">X / TWITTER</a>
+        <a href="https://youtube.com" class="social-btn btn-jump">YOUTUBE</a>
+    </footer>
+
+    <script>
+        const canciones = [
+            { titulo: "Himno al No Ser", archivo: "track1.mp3" },
+            { titulo: "Celdas de Cuero", archivo: "track2.mp3" },
+            { titulo: "Grasa y Punk", archivo: "track3.mp3" }
+        ];
+        let idx = 0;
+        let audio = new Audio(canciones[idx].archivo);
+
+        function playPause() {
+            const disp = document.getElementById("track-name");
+            if (audio.paused) {
+                audio.play().catch(e => console.log("Click para audio"));
+                disp.innerText = "TOCANDO: " + canciones[idx].titulo;
+            } else {
+                audio.pause();
+                disp.innerText = "PAUSADO";
+            }
+        }
+
+        function nextTrack() {
+            audio.pause();
+            idx = (idx + 1) % canciones.length;
+            audio = new Audio(canciones[idx].archivo);
+            playPause();
+        }
+
+        function prevTrack() {
+            audio.pause();
+            idx = (idx - 1 + canciones.length) % canciones.length;
+            audio = new Audio(canciones[idx].archivo);
+            playPause();
+        }
+
+        function updateVolume(v) { audio.volume = v / 100; }
+    </script>
+</body>
+</html>
