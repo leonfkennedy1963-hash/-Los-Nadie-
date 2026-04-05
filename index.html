@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERROR NADIES.410 | STATUS: UNKNOWN</title>
+    <style>
+	
+	@font-face {
+    font-family: 'OrtlandCustom';
+    src: url('Ortland.ttf'); /* Asegurate que el nombre coincida exacto con el archivo */
+    font-weight: normal;
+    font-style: normal;
+}
+
+	
+        :root {
+            --gris-oscuro: #1a1a1a;
+            --gris-metal: #444;
+            --rojo-sangre: #800000;
+            --neon-verde: #00ff00;
+            --fallo: #ff0055;
+        }
+
+        body {
+            background: #050505;
+            color: #ccc;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .background-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+            opacity: 0.15; z-index: -2;
+            animation: flicker 0.1s infinite;
+        }
+
+       /* ZEPELÍN INTERACTIVO - RECALIBRADO FINAL */
+.zeppelin-container {
+    position: fixed;
+    top: 15%;
+    width: 250px; /* Ajustá el tamaño a tu gusto */
+    z-index: 10;
+    cursor: crosshair;
+    /* Mantenemos la animación de derecha a izquierda */
+    animation: fly-reverse 25s linear infinite;
+    
+    /* APLICAMOS LOS FILTROS ACÁ PARA QUE AFECTEN AL EMBED */
+    filter: grayscale(100%) contrast(120%) drop-shadow(0 0 5px #ff00ff);
+    transition: filter 0.3s;
+}
+
+.zeppelin-container:hover {
+    filter: grayscale(0%) contrast(100%) drop-shadow(0 0 15px #ff00ff);
+}
+
+/* Forzar que el embed de Tenor sea flexible y transparente */
+.tenor-gif-embed {
+    width: 100% !important;
+    background: transparent !important;
+}
+
+/* Asegurate de que NO haya transform: scaleX(-1) acá ni en hijos */
+
+
+/* TRAYECTORIA: DE DERECHA A IZQUIERDA (Se mantiene) */
+@keyframes fly-reverse {
+    from { 
+        right: -300px; /* Empieza afuera por la derecha */
+    }
+    to { 
+        right: 110%; /* Termina pasando el borde izquierdo */
+    }
+}
+        .dropped-image {
+            position: absolute;
+            width: 100px;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: fall 2s forwards ease-in;
+            pointer-events: none;
+            border: 2px solid var(--rojo-sangre);
+        }
+
+        @keyframes fall {
+            to { transform: translateX(-50%) translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes fly {
+            from { left: -300px; }
+            to { left: 110%; }
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.1; } 50% { opacity: 0.2; } 100% { opacity: 0.1; }
+        }
+
+        /* NUEVO LOGO ERROR 410 */
+        .error-header {
+            margin: 60px 0;
+            text-align: center;
+            background: #000;
+            border: 4px double var(--fallo);
+            padding: 20px 40px;
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.3);
+        }
+
+        .error-title {
+            font-size: clamp(2rem, 8vw, 5rem);
+            color: #fff;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .glitch-sub {
+            color: var(--fallo);
+            font-weight: bold;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .slogan { 
+            background: #ff0000; 
+            color: #000; 
+            font-weight: 900; 
+            padding: 5px 20px; 
+            display: inline-block; 
+            transform: rotate(-1deg); 
+            margin: 20px 0; 
+        }
+
+        section { width: 90%; max-width: 1000px; margin: 40px 0; border: 2px solid var(--gris-metal); background: rgba(20,20,20,0.9); padding: 20px; position: relative; }
+        h2 { border-bottom: 2px solid var(--rojo-sangre); padding-bottom: 10px; text-transform: uppercase; }
+
+        .clock-box { text-align: center; }
+        #analogClock { background: #000; border-radius: 50%; border: 10px solid #333; }
+
+        /* MIEMBROS CON BOTONES */
+        .grid-miembros { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .ficha { 
+            border: 1px solid #555; 
+            padding: 15px; 
+            background: #111; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px;
+        }
+        .ficha span { color: var(--rojo-sangre); font-weight: bold; }
+        .btn-expediente {
+            background: #222;
+            color: #fff;
+            border: 1px solid var(--gris-metal);
+            padding: 5px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        .btn-expediente:hover { background: var(--rojo-sangre); }
+
+        .jukebox { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .controles { display: flex; gap: 10px; }
+        .btn-juke { background: #333; color: var(--neon-verde); border: 2px outset #555; padding: 10px; cursor: pointer; font-weight: bold; }
+
+        footer { 
+            width: 100%; 
+            padding: 50px 0; 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+            gap: 10px; 
+            background: #000; 
+            max-width: 1200px;
+        }
+        .social-link { 
+            color: #555; 
+            text-decoration: none; 
+            font-weight: bold; 
+            padding: 15px; 
+            border: 1px solid #222; 
+            text-align: center;
+            font-size: 0.75rem;
+        }
+        .social-link:hover { color: #fff; border-color: #fff; background: #111; }
+
+.btn-nodo {
+    cursor: pointer; /* Cambia la flecha por la manito */
+    display: block;  /* Hace que todo el ancho del botón sea clickeable */
+}
+
+:root {
+    /* ... tus otros colores ... */
+    --font-banda: 'OrtlandCustom', serif;
+}
+
+/* Aplicar al título principal y encabezados */
+h1, h2 {
+    font-family: var(--font-banda);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+/* Aplicar al logo interactivo para que tenga coherencia */
+.pixel-text {
+    font-family: var(--font-banda) !important;
+    font-size: clamp(60px, 14vw, 140px);
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="background-overlay"></div>
+
+    <div class="zeppelin-container" onclick="dropCrap(this)">
+        <img src="dirigible-airship.gif" class="zeppelin-img" alt="Zepelin">
+    </div>
+
+    <div class="error-header">
+        <h1 class="error-title">Error Nadies.410</h1>
+        <span class="glitch-sub">RECURSO PERMANENTEMENTE ELIMINADO</span>
+    </div>
+
+    <div class="slogan">ENTRE EL SER Y NO SER ELEGIMOS NO SER [HOMOSEXUALES]</div>
+
+    <section class="clock-box">
+        <canvas id="analogClock" width="220" height="220"></canvas>
+        <div id="digitalTime">00:00:00</div>
+        <button class="btn-juke" onclick="toggleFormat()">12H / 24H</button>
+    </section>
+
+    <section>
+        <h2>Prontuario / Miembros</h2>
+        <div class="grid-miembros">
+            <div class="ficha">
+                <span>BATERO: Leo</span>
+                <a href="leo.html" class="btn-expediente">VER EXPEDIENTE</a>
+            </div>
+            <div class="ficha">
+                <span>BAJISTA: Sam</span>
+                <a href="sam.html" class="btn-expediente">VER EXPEDIENTE</a>
+            </div>
+            <div class="ficha">
+                <span>GUITARRISTA: Damian</span>
+                <a href="LINK_DAMIAN" class="btn-expediente">VER EXPEDIENTE</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Rocola Oxidada</h2>
+        <div class="jukebox">
+            <div id="track-name" style="color: var(--neon-verde); font-weight: bold;">LISTO PARA EL RUIDO...</div>
+            <div class="controles">
+                <button class="btn-juke" onclick="prevTrack()">PREV</button>
+                <button class="btn-juke" onclick="playPause()">PLAY / PAUSE</button>
+                <button class="btn-juke" onclick="nextTrack()">NEXT</button>
+            </div>
+            <input type="range" min="0" max="100" value="50" oninput="updateVolume(this.value)">
+            <small>VOLUMEN</small>
+        </div>
+    </section>
+	<section class="nodos-externos">
+    <h2>Nodos de Acceso / Desvío</h2>
+    <div class="grid-enlaces">
+        <a href="arcade.html" class="btn-nodo">
+    <span class="code">[01]</span> ARCADE: INFRAMUNDO
+</a>
+        <a href="memes.html" class="btn-nodo">
+    <span class="code">[02]</span> Memes XD
+</a>
+        <a href="foro.html" class="btn-nodo">
+            <span class="code">[03]</span> :D
+        </a>
+        <a href="foro.html" class="btn-nodo">
+            <span class="code">[04]</span> Foro
+        </a>
+        <a href="frases.html" class="btn-nodo">
+            <span class="code">[05]</span> Frases Motivacionales de Leo Kasper
+        </a>
+    </div>
+</section>
+
+    <footer>
+        <a href="#" class="social-link">KICK</a>
+        <a href="#" class="social-link">DISCORD</a>
+        <a href="#" class="social-link">TIKTOK</a>
+        <a href="#" class="social-link">X / TWITTER</a>
+        <a href="#" class="social-link">INSTAGRAM</a>
+        <a href="#" class="social-link">SPOTIFY</a>
+        <a href="#" class="social-link">YOUTUBE</a>
+        <a href="#" class="social-link">TWITCH</a>
+    </footer>
+
+    <script>
+        // CONFIGURACIÓN GLOBAL
+        let is24H = true;
+        const canciones = [
+            { titulo: "Himno al No Ser", archivo: "track1.mp3" },
+            { titulo: "Celdas de Cuero", archivo: "track2.mp3" },
+            { titulo: "Grasa y Punk", archivo: "track3.mp3" }
+        ];
+        let indiceActual = 0;
+        let audio = new Audio(canciones[indiceActual].archivo);
+
+        // ZEPELIN INTERACTIVO - VERSIÓN AMPLIADA CON 10 IMÁGENES
+function dropCrap(container) {
+    // 1. TU LISTA DE 10 IMÁGENES (Cambia los nombres por los tuyos)
+    // Asegurate de tener estos archivos en la misma carpeta que el index.html
+    const poolDeImágenes = [
+        "basura1.webp", "error410.webp", "pixel-roto.webp", "código.webp", 
+        "calavera.jpeg", "logo-antiguo.png", "papelera.jpeg", "icono-incognito.png",
+        "glitch.png", "residuos.jpg"
+    ];
+
+    // 2. LA LÓGICA ALEATORIA (Ya estaba aquí, pero ahora tiene más de donde elegir)
+    // Elige un índice aleatorio entre 0 y la longitud de la lista (9)
+    const indiceAleatorio = Math.floor(Math.random() * poolDeImágenes.length);
+    // Selecciona el nombre de archivo aleatorio
+    const imagenElegida = poolDeImágenes[indiceAleatorio];
+
+    // 3. CREAR EL ELEMENTO EN LA PÁGINA
+    const img = document.createElement('img');
+    img.src = imagenElegida; // Asigna la imagen aleatoria
+    img.className = 'dropped-image'; // Le aplica la clase CSS con la animación
+
+    // 4. SOLTARLO DESDE EL ZEPPELIN
+    container.appendChild(img);
+
+    // 5. LIMPIEZA AUTOMÁTICA
+    // Borra la imagen después de 2 segundos para que no se sature la pantalla
+    setTimeout(() => img.remove(), 2000);
+}
+
+
+        // RELOJ
+        window.onload = () => { setInterval(drawClock, 1000); drawClock(); };
+
+        function drawClock() {
+            const canvas = document.getElementById("analogClock");
+            const digital = document.getElementById("digitalTime");
+            if (!canvas || !digital) return;
+            const ctx = canvas.getContext("2d");
+            const radius = canvas.height / 2;
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.translate(radius, radius);
+            ctx.beginPath();
+            ctx.arc(0, 0, radius - 10, 0, 2 * Math.PI);
+            ctx.fillStyle = "#000"; ctx.fill();
+            ctx.strokeStyle = "#333"; ctx.lineWidth = 4; ctx.stroke();
+            ctx.font = "bold 14px 'Courier New'"; ctx.fillStyle = "#00ff00";
+            ctx.textAlign = "center"; ctx.textBaseline = "middle";
+            for (let n = 1; n <= 12; n++) {
+                let ang = n * Math.PI / 6;
+                ctx.rotate(ang); ctx.translate(0, -radius * 0.75); ctx.rotate(-ang);
+                ctx.fillText(n.toString(), 0, 0);
+                ctx.rotate(ang); ctx.translate(0, radius * 0.75); ctx.rotate(-ang);
+            }
+            const now = new Date();
+            let h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
+            let hDisp = is24H ? h : (h % 12 || 12);
+            let ampm = !is24H ? (h >= 12 ? " PM" : " AM") : "";
+            digital.innerText = `${hDisp}:${m < 10 ? '0'+m : m}:${s < 10 ? '0'+s : s}${ampm}`;
+            drawHand(ctx, (h % 12 * Math.PI / 6) + (m * Math.PI / 360), radius * 0.5, 5, "#fff");
+            drawHand(ctx, (m * Math.PI / 30), radius * 0.7, 3, "#888");
+            drawHand(ctx, (s * Math.PI / 30), radius * 0.85, 2, "#ff0000");
+        }
+
+        function drawHand(ctx, pos, length, width, color) {
+            ctx.beginPath(); ctx.lineWidth = width; ctx.lineCap = "square";
+            ctx.strokeStyle = color; ctx.moveTo(0, 0);
+            ctx.rotate(pos); ctx.lineTo(0, -length); ctx.stroke(); ctx.rotate(-pos);
+        }
+
+        function toggleFormat() { is24H = !is24H; drawClock(); }
+
+        // ROCOLA
+        function playPause() {
+            const display = document.getElementById("track-name");
+            if (audio.paused) {
+                audio.play().catch(() => {});
+                display.innerText = "TOCANDO: " + canciones[indiceActual].titulo;
+            } else {
+                audio.pause();
+                display.innerText = "PAUSADO";
+            }
+        }
+
+        function nextTrack() {
+            audio.pause();
+            indiceActual = (indiceActual + 1) % canciones.length;
+            audio = new Audio(canciones[indiceActual].archivo);
+            playPause();
+        }
+
+        function prevTrack() {
+            audio.pause();
+            indiceActual = (indiceActual - 1 + canciones.length) % canciones.length;
+            audio = new Audio(canciones[indiceActual].archivo);
+            playPause();
+        }
+
+        function updateVolume(val) { audio.volume = val / 100; }
+    </script>
+</body>
+</html>
